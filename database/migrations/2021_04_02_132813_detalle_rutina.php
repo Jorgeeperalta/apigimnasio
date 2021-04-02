@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Directorio extends Migration
+class DetalleRutina extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class Directorio extends Migration
      */
     public function up()
     {
-        Schema::defaultStringLength(191);
-        Schema::create('directorios', function (Blueprint $table) {
+        Schema::create('detalleRutina', function (Blueprint $table) {
             $table->id();
-            $table->integer('fk_user');
-            $table->string('nombreCompleto',100);
-            $table->string('direction');
-            $table->integer('telefono');
-            $table->string('foto');
+            $table->string('fk_rutina');
+            $table->string('texto');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class Directorio extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directorios');
+        Schema::dropIfExists('detalleRutina');
     }
 }

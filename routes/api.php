@@ -18,8 +18,11 @@ Route::post('/login',  [UserController::class, 'login']);
 
 
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::ApiResource('directorios', DirertorioController::class);
-    Route::ApiResource('/nivelrutina', Nivel_rutinaController::class);
-    Route::ApiResource('/rutinas', RutinasController::class);
+    Route::group(['middleware' => ['cors']], function () {
+        Route::ApiResource('directorios', DirertorioController::class);
+        Route::ApiResource('/nivelrutina', Nivel_rutinaController::class);
+        Route::ApiResource('/rutinas', RutinasController::class);
+    });
+   
     Route::post('/logout',  [UserController::class, 'logout']);
 });

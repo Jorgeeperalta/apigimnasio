@@ -57,17 +57,11 @@ class Nivel_rutinaController extends Controller
         return $nivel;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
 
     {
-      
+       
         Nivel_rutina::where('id', $id)->update($request->all());
         return response()->json([
             'res' => true,
